@@ -1,2 +1,98 @@
-# e2e-simplifica
- 
+Execução de testes com Appium
+📦 Pré-requisitos
+
+Antes de rodar os testes, garanta que você tem instalado:
+
+Node.js (>= 16)
+Appium
+Appium Inspector
+Android Studio (emulador ou device físico)
+Java JDK configurado
+Appium Driver UiAutomator2
+
+Instalar Appium globalmente:
+
+npm install -g appium
+
+Instalar driver Android:
+
+appium driver install uiautomator2
+
+Verificar instalação:
+
+appium -v
+appium driver list
+🚀 Iniciar o servidor Appium
+
+Abra um terminal e execute:
+
+appium
+
+Servidor padrão:
+
+http://127.0.0.1:4723
+🧪 Rodar os testes (WDIO)
+
+Se seu projeto usa WebdriverIO:
+
+npx wdio run wdio.conf.js
+
+Ou se tiver script no package.json:
+
+npm run test
+📱 Abrir Appium Inspector
+
+1. Iniciar o Appium (obrigatório antes)
+   appium
+2. Abrir o Appium Inspector
+
+No Linux:
+
+appium-inspector
+
+Ou via instalação desktop:
+
+Abrir o aplicativo Appium Inspector normalmente 3. Configuração básica do Inspector
+
+Preencher:
+
+Remote Host
+
+127.0.0.1
+
+Port
+
+4723
+
+Path
+
+/wd/hub (ou / dependendo da versão do Appium) 4. Desired Capabilities (exemplo Android)
+{
+"platformName": "Android",
+"appium:automationName": "UiAutomator2",
+"appium:deviceName": "Android",
+"appium:udid": "SEU_UDID",
+"appium:noReset": true,
+"appium:app": "./apps/seu-app.apk"
+}
+📲 Ver device conectado
+adb devices
+🧹 Dicas úteis
+
+Reiniciar servidor Appium:
+
+ctrl + c
+appium
+
+Limpar cache do WDIO:
+
+rm -rf node_modules/.cache
+
+⚠️ Problemas comuns
+❌ Não conecta no Appium
+Verifique se o Appium está rodando
+Confirme URL: http://127.0.0.1:4723
+❌ Inspector não abre tela
+App pode estar com flag secure
+Tente outro device/emulador
+Verifique noReset
