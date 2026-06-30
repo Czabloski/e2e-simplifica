@@ -37,8 +37,6 @@ Se seu projeto usa WebdriverIO:
 
 npx wdio run wdio.conf.js
 
-Ou se tiver script no package.json:
-
 npm run test
 📱 Abrir Appium Inspector
 
@@ -56,17 +54,11 @@ Abrir o aplicativo Appium Inspector normalmente 3. Configuração básica do Ins
 
 Preencher:
 
-Remote Host
+Remote Host 127.0.0.1
+Port:4723
 
-127.0.0.1
+Path: /wd/hub (ou / dependendo da versão do Appium) 4. Desired Capabilities (exemplo Android)
 
-Port
-
-4723
-
-Path
-
-/wd/hub (ou / dependendo da versão do Appium) 4. Desired Capabilities (exemplo Android)
 {
 "platformName": "Android",
 "appium:automationName": "UiAutomator2",
@@ -75,6 +67,7 @@ Path
 "appium:noReset": true,
 "appium:app": "./apps/seu-app.apk"
 }
+
 📲 Ver device conectado
 adb devices
 🧹 Dicas úteis
@@ -89,10 +82,10 @@ Limpar cache do WDIO:
 rm -rf node_modules/.cache
 
 ⚠️ Problemas comuns
+
 ❌ Não conecta no Appium
 Verifique se o Appium está rodando
 Confirme URL: http://127.0.0.1:4723
 ❌ Inspector não abre tela
 App pode estar com flag secure
 Tente outro device/emulador
-Verifique noReset
